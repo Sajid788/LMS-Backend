@@ -1,10 +1,15 @@
 const express = require('express')
 const {connection, PORT} = require('./Config/db')
-const app = express()
+const {userController}= require('./Controller/userController')
+
+const app = express() 
+app.use(express.json());
 
 app.get('/', (req,res)=>{
     res.send({msg:"api is live"})
 })
+
+app.use('/user', userController);
 
 app.listen(PORT, async()=>{
     try {

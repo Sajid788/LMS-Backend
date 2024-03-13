@@ -4,5 +4,6 @@ require('dotenv').config()
 const connection = mongoose.connect(process.env.MONGO_URL);
 
 const PORT = process.env.PORT
+const JWT_SECRET = process.env.JWT_SECRET
 
-module.exports = {connection,PORT};
+module.exports = {connection,PORT,JWT_SECRET};
