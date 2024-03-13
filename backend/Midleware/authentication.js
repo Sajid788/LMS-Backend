@@ -1,4 +1,4 @@
-const { JWT_SECRET } = require('../Model/User');
+const { JWT_SECRET } = require('../Config/db');
 const jwt = require('jsonwebtoken');
 
 const authorization = (allowedRoles) => (req, res, next) => {
