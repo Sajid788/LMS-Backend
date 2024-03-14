@@ -71,7 +71,7 @@ CourseController.patch("/courses/edit/:id", authentication(["Admin", "Instructor
             console.log(course)
         }
         else{
-            res.send({ message:"lecture data not found"});
+            res.send({ message:"course data not found"});
         }
     } catch (error) {
         console.log(error)

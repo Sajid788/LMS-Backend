@@ -2,8 +2,10 @@ const express = require('express')
 const {connection, PORT} = require('./Config/db')
 const {userController}= require('./Controller/userController');
  
-const CourseController = require('./Controller/courseController');
 const LectureController = require('./Controller/lectureController');
+const CourseController = require('./Controller/courseController');
+const DisscussionController = require('./Controller/disscussionController');
+const AssignmentController = require('./Controller/assignmentController')
 
 const app = express() 
 app.use(express.json());
@@ -13,8 +15,11 @@ app.get('/', (req,res)=>{
 })
 
 app.use('/user', userController);
-app.use('/course',CourseController);
 app.use('/lecture', LectureController);
+app.use('/course', CourseController)
+app.use('/disscusion', DisscussionController);
+app.use('/assignment', AssignmentController);
+
 
 app.listen(PORT, async()=>{
     try {

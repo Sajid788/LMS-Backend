@@ -42,16 +42,15 @@ AssignmentController.get('/assignments', async(req,res) =>{
     });
     
     AssignmentController.post('/assignments', authentication(["Admin","Instructor"]), async (req,res)=>{
-        const userName = req.userName
-        const {title,category,deadline} = req.body;
-        if(!title || !category || !deadline){
+        const {title,category,creator,deadline} = req.body;
+        if(!title || !category || !deadline, !creator){
             return res.send({msg:'Please fill all the details'})
         }
         try {
             const assignment = await AssignmentModel.create({
                 title:title,
                 category:category,
-                creator:userName,
+                creator:creator,
                 deadline:deadline,
             })
             res.send({msg:'Assignment created Successfully'})
