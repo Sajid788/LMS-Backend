@@ -1,9 +1,10 @@
 const mongoose = require("mongoose");
 
 const disscussionSchma = new mongoose.Schema({
-    subject:{type: String, required: true},
+    title:{type: String, required: true},
     description: {type: String,required: true },
-    status:{type: String}
+    createrId:{type:mongoose.Types.ObjectId, required:true},
+    status:{type: String, enum:["Pending", "Resolved", "Reopened"]}
 });
 
 const DisscussionModel = mongoose.model("Disscussion", disscussionSchma);
